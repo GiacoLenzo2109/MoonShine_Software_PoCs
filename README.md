@@ -29,7 +29,7 @@ The issue is related to the function to add a new Admin.
 
 1. Under the Sidebar "System" tab: *Admins -> Create*
 
-2. Insert the following payload under the Name input field: `<img src=x onerror=alert("XSS")>`
+2. Insert the following payload under the *Name* input field: `<img src=x onerror=alert("XSS")>`
 <img width="2918" height="1502" alt="Pasted image 20250514125007" src="https://github.com/user-attachments/assets/02f3e5fb-590c-429e-b5a0-c6b6022b885b" />
 
 3. Save
