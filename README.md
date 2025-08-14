@@ -55,8 +55,8 @@ When creating a new Article (*Blog -> Articles*), an attacker could upload the f
    </script>
 </svg>
 ```
-<img width="2746" height="1390" alt="Pasted image 20250514220232" src="https://github.com/user-attachments/assets/5305a221-08b0-4beb-ad27-a2e86c2b57f9" />
 <img width="2910" height="1604" alt="Pasted image 20250514220107" src="https://github.com/user-attachments/assets/a44712a7-aee3-455a-bc15-977b533743a8" />
+<img width="2746" height="1390" alt="Pasted image 20250514220232" src="https://github.com/user-attachments/assets/5305a221-08b0-4beb-ad27-a2e86c2b57f9" />
 
 
 ## CVE-2025-51510 - SQL Injection
