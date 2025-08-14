@@ -43,7 +43,7 @@ A Stored Cross-Site Scripting (XSS) vulnerability exists in MoonShine version < 
 ### CVSS 3.1 - 4.5 Medium
 CVSS:3.0/AV:N/AC:L/PR:H/UI:R/S:U/C:H/I:N/A:N
 ### PoC - Proof of Concept
-When creating a new Article (Blog -> Articles), an attacker could upload the following SVG under 'Files' > 'Thumbnail' field.
+When creating a new Article (Blog -> Articles), an attacker could upload the following SVG under "Files -> Thumbnail" field.
 ```
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
