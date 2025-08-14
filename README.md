@@ -61,7 +61,7 @@ When creating a new Article (*Blog -> Articles*), an attacker could upload the f
 
 ## CVE-2025-51510 - SQL Injection
 ### Description
-MoonShine was discovered to contain a SQL injection vulnerability via the Data parameter under the Blog module when using the moonshine-tree-resource component (e.g. public MoonShine Software demo version).
+MoonShine was discovered to contain a SQL injection vulnerability via the Data parameter under the Blog module when using the moonshine-tree-resource component. An example of the use of this vulnerable component can be found under the public MoonShine Software demo based on MoonShine Software 3.12.5 (https://github.com/moonshine-software/demo-project - commit 72a1d80bf23de6c3457205630eb25409432bdbe0).
 The vulnerable component is the following https://github.com/lee-to/moonshine-tree-resource (version < 2.0.2).
 ### CVSS 3.1 - 4.9 Medium
 CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N
