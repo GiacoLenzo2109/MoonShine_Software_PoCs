@@ -10,14 +10,14 @@ The XSS is related to the creation of a new article:
 1. Under the sidebar: *Blog -> Articles*
 
 2. Under *Link -> CutCode* insert the following payload under: `javascript:alert("XSS")`
-![[images/CVE-2025-51487_1.png]]
+![/images/CVE-2025-51487_1.png]
 
 
 3. Complete all other fields and save
 
 4. Load all articles and check for your last article saved. Under the link field you will see your payload. Click on it, a popup will be opened showing the message "XSS"
-![[images/CVE-2025-51487_2.png]]
-![[images/CVE-2025-51487_3.png]]
+![/images/CVE-2025-51487_2.png]
+![/images/CVE-2025-51487_3.png]
 
 ## CVE-2025-51488 - Stored XSS
 ### Description
@@ -30,12 +30,12 @@ The issue is related to the function to add a new Admin.
 1. Under the Sidebar "System" tab: *Admins -> Create*
 
 2. Insert the following payload under the *Name* input field: `<img src=x onerror=alert("XSS")>`
-![[images/CVE-2025-51488_1.png]]
+![/images/CVE-2025-51488_1.png]
 
 3. Save
 
 4. Under the sidebar select *Blog -> Articles*: now a popup will be opened showing the message "XSS"  
-![[images/CVE-2025-51488_2.png]]
+![/images/CVE-2025-51488_2.png]
 
 ## CVE-2025-51489 - Reflected XSS via Unrestriced File Upload
 ### Description
@@ -55,8 +55,8 @@ When creating a new Article (*Blog -> Articles*), an attacker could upload the f
    </script>
 </svg>
 ```
-![[images/CVE-2025-51489_1.png]]
-![[images/CVE-2025-51489_2.png]]
+![/images/CVE-2025-51489_1.png]
+![/images/CVE-2025-51489_2.png]
 
 
 ## CVE-2025-51510 - SQL Injection
@@ -108,10 +108,10 @@ Content-Disposition: form-data; name="data"
 ```
 
 Here an example of the dumped db version:
-![[images/CVE-2025-51510_1.png]]
+![/images/CVE-2025-51510_1.png]
 
 Using the attached Python script (CVE-2025-51510.py), it was possible to extract Admin hash from *moonshine_users* table.
 
 The following image shows the Admin hash correctly dumped (from moonshine_users table) character by character:
-![[images/CVE-2025-51510_2.png]]
+![/images/CVE-2025-51510_2.png]
 
