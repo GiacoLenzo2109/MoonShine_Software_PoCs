@@ -7,9 +7,9 @@ A Stored Cross-Site Scripting (XSS) vulnerability exists in MoonShine version < 
 CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N
 ### PoC - Proof of Concept
 The XSS is related to the creation of a new article:  
-1. Under the sidebar: Blog -> Articles
+1. Under the sidebar: *Blog -> Articles*
 
-2. Under "Link -> CutCode" insert the following payload under: `javascript:alert("XSS")`
+2. Under *Link -> CutCode* insert the following payload under: `javascript:alert("XSS")`
 <img width="2906" height="1886" alt="Pasted image 20250514125312" src="https://github.com/user-attachments/assets/6fb1c058-51f5-4c9d-901b-26f4d86b5235" />
 
 
@@ -21,29 +21,29 @@ The XSS is related to the creation of a new article:
 
 ## CVE-2025-51488 - Stored XSS
 ### Description
-A Stored Cross-Site Scripting (XSS) vulnerability exists in MoonShine version < 3.12.4, allowing remote attackers to store and execute arbitrary JavaScript in the browser of a user by including a malicious payload in the 'Name' parameter when creating a new Admin.
+A Stored Cross-Site Scripting (XSS) vulnerability exists in MoonShine version < 3.12.4, allowing remote attackers to store and execute arbitrary JavaScript in the browser of a user by including a malicious payload in the '*Name*' parameter when creating a new Admin.
 ### CVSS 3.1 - 4.9 Medium
 CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N
 ### PoC - Proof of Concept
 The issue is related to the function to add a new Admin.  
 
-1. Under the Sidebar "System" tab: Admins -> Create
+1. Under the Sidebar "System" tab: *Admins -> Create*
 
 2. Insert the following payload under the Name input field: `<img src=x onerror=alert("XSS")>`
 <img width="2918" height="1502" alt="Pasted image 20250514125007" src="https://github.com/user-attachments/assets/02f3e5fb-590c-429e-b5a0-c6b6022b885b" />
 
 3. Save
 
-4. Under the sidebar select "Blog -> Articles": now a popup will be opened showing the message "XSS"  
+4. Under the sidebar select *Blog -> Articles*: now a popup will be opened showing the message "XSS"  
 <img width="2906" height="1574" alt="Pasted image 20250514125127" src="https://github.com/user-attachments/assets/a277d2ba-fb8f-4533-8e2b-938b9bae9cba" />
 
 ## CVE-2025-51489 - Reflected XSS via Unrestriced File Upload
 ### Description
-A Stored Cross-Site Scripting (XSS) vulnerability exists in MoonShine version < 3.12.5, allowing remote attackers to upload a malicious SVG file in "Files -> Thumbnail" when creating/updating an Article and correctly execute arbitrary JavaScript in the victim's browser when the file link is opened by the victim.
+A Stored Cross-Site Scripting (XSS) vulnerability exists in MoonShine version < 3.12.5, allowing remote attackers to upload a malicious SVG file in *Files -> Thumbnail* when creating/updating an Article and correctly execute arbitrary JavaScript in the victim's browser when the file link is opened by the victim.
 ### CVSS 3.1 - 4.5 Medium
 CVSS:3.0/AV:N/AC:L/PR:H/UI:R/S:U/C:H/I:N/A:N
 ### PoC - Proof of Concept
-When creating a new Article (Blog -> Articles), an attacker could upload the following SVG under "Files -> Thumbnail" field.
+When creating a new Article (*Blog -> Articles*), an attacker could upload the following SVG under *Files -> Thumbnail* field.
 ```
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
