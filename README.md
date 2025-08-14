@@ -2,7 +2,7 @@
 Author: Giacomo Lenzini - GiacoLenzo2109
 ## CVE-2025-51487 - Stored XSS
 ### Description
-A Stored Cross-Site Scripting (XSS) vulnerability exists in MoonShine version < 3.12.5, allowing remote attackers to store and execute arbitrary JavaScript in the browser of a user by including a payload using "javascript:", instead of the expected HTTPS protocol, in the CutCode '*Link*' parameter when creating/updating a new Article.
+A Stored Cross-Site Scripting (XSS) vulnerability exists in MoonShine version < 3.12.5, allowing remote attackers to store and execute arbitrary JavaScript in the browser of a user by including a payload using "javascript:", instead of the expected HTTPS protocol, in the CutCode *Link* parameter when creating/updating a new Article.
 ### CVSS 3.1 - 4.5 Medium
 CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N
 ### PoC - Proof of Concept
@@ -21,7 +21,7 @@ The XSS is related to the creation of a new article:
 
 ## CVE-2025-51488 - Stored XSS
 ### Description
-A Stored Cross-Site Scripting (XSS) vulnerability exists in MoonShine version < 3.12.4, allowing remote attackers to store and execute arbitrary JavaScript in the browser of a user by including a malicious payload in the '*Name*' parameter when creating a new Admin.
+A Stored Cross-Site Scripting (XSS) vulnerability exists in MoonShine version < 3.12.4, allowing remote attackers to store and execute arbitrary JavaScript in the browser of a user by including a malicious payload in the *Name* parameter when creating a new Admin.
 ### CVSS 3.1 - 4.9 Medium
 CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N
 ### PoC - Proof of Concept
@@ -66,7 +66,7 @@ The vulnerable component is the following https://github.com/lee-to/moonshine-tr
 ### CVSS 3.1 - 4.9 Medium
 CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N
 ### PoC - Proof of Concept
-Vulnerable SQLi request, injecting a payload inside the 'data' request field that shows the database version.
+Vulnerable SQLi request, injecting a payload inside the *data* request field that shows the database version.
 ```
 POST /admin/category-resource/sortable HTTP/1.1
 Host: localhost
