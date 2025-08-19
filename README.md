@@ -67,7 +67,7 @@ The vulnerable component is the following https://github.com/lee-to/moonshine-tr
 ### CVSS 3.1 - 4.9 Medium
 CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N
 ### PoC - Proof of Concept
-To correctly intercept the vulnerable request change the position of a caterogy (e.g. the one highligthed in blue) by moving it up/down.
+To correctly intercept the vulnerable request, change the position of a category (for example, the one highlighted in blue) by moving it up/down.
 ![/images/CVE-2025-51510.png](/images/CVE-2025-51510.png)
 
 Vulnerable SQLi request, injecting a payload inside the *data* request field that shows the database version.
