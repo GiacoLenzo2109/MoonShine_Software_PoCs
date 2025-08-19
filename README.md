@@ -129,7 +129,7 @@ In order to extract the desired information, the value returned by the SELECT st
 This vulnerability can also be exploited without concatenating the value with an integer, by using a blind method that relies on measuring response times.
 
 ```
-(SELECT password FROM moonshine_users WHERE id=1 AND BINARY SUBSTRING(password FROM <LETTER_POSITION> FOR 1)='<CHARACTER>' AND SLEEP(5))
+(SELECT password FROM moonshine_users WHERE id=1 AND BINARY SUBSTRING(password FROM <LETTER_POSITION> FOR 1)='<CHARACTER>' AND SLEEP(1))
 ```
 
 This query is used in a time-based blind SQL injection to extract a user’s password one character at a time without using commas. It checks if a specific character at a certain position matches a guessed value, and if true, delays the response by a set amount of time, allowing to infer the correct character from the response delay.
@@ -139,5 +139,7 @@ It's possible to run the attached Python script ([CVE-2025-51510.py](CVE-2025-51
 Replace the cookies within the script with valid ones.
 
 The following image shows the *admin* hash correctly dumped character by character:
+![/images/CVE-2025-51510_4.png](/images/CVE-2025-51510_4.png)
+
 ![/images/CVE-2025-51510_2.png](/images/CVE-2025-51510_2.png)
 
