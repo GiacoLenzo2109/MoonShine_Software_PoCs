@@ -114,21 +114,30 @@ Content-Disposition: form-data; name="data"
 Here an example of the dumped db version:
 ![/images/CVE-2025-51510_1.png](/images/CVE-2025-51510_1.png)
 
-It’s possible to manually exploit this SQLi vulnerability by placing the following payload inside the data form parameter. The following payload is specifically crafted to retrieve the admin password from the moonshine_users table.
+It’s possible to manually exploit this SQLi vulnerability by placing the following payload inside the *data* form parameter. The following payload is specifically crafted to retrieve the *admin* password from the *moonshine_users* table.
 
-In order to extract the desired information, the value returned by the SELECT statement must be concatenated with a numeric value. This operation causes the database to throw an error (e.g. `SQLSTATE[22007]: Invalid datetime format: 1292 Truncated incorrect DOUBLE value: '<VALUE_SELECTED>'`), which in turn includes the selected data inside the response.
+In order to extract the desired information, the value returned by the SELECT statement must be concatenated with a numeric value. This operation causes the database to throw an exception (e.g. `SQLSTATE[22007]: Invalid datetime format: 1292 Truncated incorrect DOUBLE value: '<VALUE_SELECTED>'`), which in turn includes the selected data inside the response as shown in the figure below.
 
 ```
 (SELECT password || 1 FROM moonshine_users WHERE id=1)
 ```
 
--> Remember not to create queries that use commas, since the backend replaces commas with `THEN 0` before executing them in the database.
+-> Remember not to create queries that use commas, since the backend replaces commas with ` THEN 0 WHEN ` before executing them in the database.
 
 ![/images/CVE-2025-51510_3.png](/images/CVE-2025-51510_3.png)
 
-Using the attached Python script (CVE-2025-51510.py), it was possible to extract Admin hash from *moonshine_users* table.
-P.S. Replace the cookies within the script with valid ones.
+This vulnerability can also be exploited without concatenating the value with an integer, by using a blind method that relies on measuring response times.
 
-The following image shows the Admin hash correctly dumped (from moonshine_users table) character by character:
+```
+(SELECT password FROM moonshine_users WHERE id=1 AND BINARY SUBSTRING(password FROM <LETTER_POSITION> FOR 1)='<CHARACTER>' AND SLEEP(5))
+```
+
+This query is used in a time-based blind SQL injection to extract a user’s password one character at a time without using commas. It checks if a specific character at a certain position matches a guessed value, and if true, delays the response by a set amount of time, allowing to infer the correct character from the response delay.
+
+It's possible to run the attached Python script ([CVE-2025-51510.py](CVE-2025-51510.py)), it was possible to extract *admin* hash from *moonshine_users* table.
+
+Replace the cookies within the script with valid ones.
+
+The following image shows the *admin* hash correctly dumped character by character:
 ![/images/CVE-2025-51510_2.png](/images/CVE-2025-51510_2.png)
 
