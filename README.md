@@ -114,8 +114,19 @@ Content-Disposition: form-data; name="data"
 Here an example of the dumped db version:
 ![/images/CVE-2025-51510_1.png](/images/CVE-2025-51510_1.png)
 
-Using the attached Python script (CVE-2025-51510.py), it was possible to extract Admin hash from *moonshine_users* table.
+It’s possible to manually exploit this SQLi vulnerability by placing the following payload inside the data form parameter. The following payload is specifically crafted to retrieve the admin password from the moonshine_users table.
 
+In order to extract the desired information, the value returned by the SELECT statement must be concatenated with a numeric value. This operation causes the database to throw an error (e.g. `SQLSTATE[22007]: Invalid datetime format: 1292 Truncated incorrect DOUBLE value: '<VALUE_SELECTED>'`), which in turn includes the selected data inside the response.
+
+```
+(SELECT password || 1 FROM moonshine_users WHERE id=1)
+```
+
+-> Remember not to create queries that use commas, since the backend replaces commas with `THEN 0` before executing them in the database.
+
+![/images/CVE-2025-51510_3.png](/images/CVE-2025-51510_3.png)
+
+Using the attached Python script (CVE-2025-51510.py), it was possible to extract Admin hash from *moonshine_users* table.
 P.S. Replace the cookies within the script with valid ones.
 
 The following image shows the Admin hash correctly dumped (from moonshine_users table) character by character:
