@@ -115,6 +115,7 @@ Here an example of the dumped db version:
 ![/images/CVE-2025-51510_1.png](/images/CVE-2025-51510_1.png)
 
 Using the attached Python script (CVE-2025-51510.py), it was possible to extract Admin hash from *moonshine_users* table.
+
 P.S. Replace the cookies within the script with valid ones.
 
 The following image shows the Admin hash correctly dumped (from moonshine_users table) character by character:
